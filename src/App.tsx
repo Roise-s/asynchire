@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
-import HomePage from "./pages/homePage";
+import HomePage from "./pages/HomePage";
+import Live from "./pages/Live";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/id:22554reamohetsentetshe" element={<Live />} />
       </Routes>
     </>
   )
