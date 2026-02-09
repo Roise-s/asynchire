@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/id:22554reamohetsentetshe" element={<Live />} />
-        <Route path="/set" element={<IsSet />} />
+        <Route path="/Information-You-Should-Know" element={<IsSet />} />
       </Routes>
     </>
   )

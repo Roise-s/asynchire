@@ -22,7 +22,7 @@ const Header = () => {
             </div>
 
             <div className="flex items-center gap-1 md:order-4 md:ms-4">
-            <a className="w-full sm:w-auto whitespace-nowrap py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-[24px] bg-blue-500 border border-transparent text-white hover:bg-blue-600 focus:outline-hidden focus:bg-blue-600 disabled:opacity-50 disabled:pointer-events-none" href="/id:22554reamohetsentetshe">
+            <a className="w-full sm:w-auto whitespace-nowrap py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-[24px] bg-blue-500 border border-transparent text-white hover:bg-blue-600 focus:outline-hidden focus:bg-blue-600 disabled:opacity-50 disabled:pointer-events-none" href="/Information-You-Should-Know">
                 Get Started
             </a>
             </div>
