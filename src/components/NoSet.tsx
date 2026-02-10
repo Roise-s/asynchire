@@ -1,5 +1,3 @@
-import React from 'react'
-
 const NoSet = () => {
   return (
     <section className="text-gray-400 bg-gray-900 body-font h-screen pl-20 pt-14">
