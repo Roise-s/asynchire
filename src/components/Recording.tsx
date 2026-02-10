@@ -24,9 +24,7 @@ const InterviewRecorder: React.FC = () => {
       videoRef.current.srcObject = stream;
     }
 
-    const recorder = new MediaRecorder(stream, {
-      mimeType: "video/webm",
-    });
+    const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
 
     recorder.ondataavailable = (event: BlobEvent) => {
       if (event.data.size > 0) {
@@ -66,20 +64,18 @@ const InterviewRecorder: React.FC = () => {
     setTimeLeft(QUESTIONS[currentQuestionIndex + 1].timeLimit);
   };
 
-  // End recording
+  // End recording + redirect
   const finishInterview = (): void => {
     mediaRecorderRef.current?.stop();
-
     streamRef.current?.getTracks().forEach(track => track.stop());
 
-    const videoBlob = new Blob(recordedChunksRef.current, {
-      type: "video/webm",
-    });
-
-    // This is where upload logic will go later
+    const videoBlob = new Blob(recordedChunksRef.current, { type: "video/webm" });
     console.log("Final video blob:", videoBlob);
 
     setIsRecording(false);
+
+    // Redirect after submit
+    window.location.href = "/submitted";
   };
 
   useEffect(() => {
@@ -88,34 +84,40 @@ const InterviewRecorder: React.FC = () => {
 
   const question = QUESTIONS[currentQuestionIndex];
 
+  // Switch to submit button dynamically at 15th question
+  const isLastQuestion = currentQuestionIndex + 1 === 15;
+
   return (
     <section className="py-8 antialiased bg-gray-900 h-screen md:py-16 justify-center items-center flex">
-        <div className="mx-auto grid max-w-7xl px-4 pb-8 md:grid-cols-12 lg:gap-12 lg:pb-16 xl:gap-0">
-            <div className="hidden w-150 mr-10 md:col-span-5 md:mt-0 md:flex">
-                <video
-                    ref={videoRef}
-                    autoPlay
-                    muted
-                    playsInline
-                    style={{ width: "100%", borderRadius: 8 }}
-                />
-            </div>
-            <div className="content-center pl-40 justify-self-start md:col-span-7 md:text-start">
-                <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:max-w-2xl md:text-5xl xl:text-6xl">
-                    Question {currentQuestionIndex + 1} of {QUESTIONS.length}
-                </h1>
-                <p className="max-w-2xl text-gray-400 md:mb-12 md:text-lg mb-3 lg:mb-5 lg:text-xl">
-                    {question.text}
-                </p>
-                <p className="max-w-2xl text-gray-400 md:mb-12 md:text-lg mb-3 lg:mb-5 lg:text-xl">
-                    Time remaining: {Math.floor(timeLeft / 60)}:
-                    {String(timeLeft % 60).padStart(2, "0")}
-                </p>
-                <button onClick={goToNextQuestion} className="inline-block rounded-lg px-6 py-3.5 text-center font-medium text-white focus:outline-none focus:ring-4 bg-[#2563eb] hover:bg-[#1d4ed8] focus:ring-[#1e40af]">
-                    Next Question
-                </button>
-            </div>
+      <div className="mx-auto grid max-w-7xl px-4 pb-8 md:grid-cols-12 lg:gap-12 lg:pb-16 xl:gap-0">
+        <div className="hidden w-150 mr-10 md:col-span-5 md:mt-0 md:flex">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            playsInline
+            style={{ width: "100%", borderRadius: 8 }}
+          />
         </div>
+        <div className="content-center pl-40 justify-self-start md:col-span-7 md:text-start">
+          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:max-w-2xl md:text-5xl xl:text-6xl">
+            Question {currentQuestionIndex + 1} of {QUESTIONS.length}
+          </h1>
+          <p className="max-w-2xl text-gray-400 md:mb-12 md:text-lg mb-3 lg:mb-5 lg:text-xl">
+            {question.text}
+          </p>
+          <p className="max-w-2xl text-gray-400 md:mb-12 md:text-lg mb-3 lg:mb-5 lg:text-xl">
+            Time remaining: {Math.floor(timeLeft / 60)}:
+            {String(timeLeft % 60).padStart(2, "0")}
+          </p>
+          <button
+            onClick={isLastQuestion ? finishInterview : goToNextQuestion}
+            className="inline-block rounded-lg px-6 py-3.5 text-center font-medium text-white focus:outline-none focus:ring-4 bg-[#2563eb] hover:bg-[#1d4ed8] focus:ring-[#1e40af]"
+          >
+            {isLastQuestion ? "Submit" : "Next Question"}
+          </button>
+        </div>
+      </div>
     </section>
   );
 };

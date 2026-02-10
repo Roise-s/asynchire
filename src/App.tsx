@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import IsSet from "./components/IsSet";
 import TestCamera from "./components/TestCamera";
 import Recording from "./components/Recording";
+import Tnk from "./components/Tnk";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/id:22554reamohetsentetshe" element={<TestCamera />} />
         <Route path="/id:22554reamohetsentetshe-recording" element={<Recording />} />
         <Route path="/Information-You-Should-Know" element={<IsSet />} />
+        <Route path="/submitted" element={<Tnk />} />
       </Routes>
     </>
   )
