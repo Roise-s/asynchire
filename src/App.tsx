@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import IsSet from "./components/IsSet";
-import CameraPreview from "./pages/CameraPreview";
+import TestCamera from "./components/TestCamera";
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/id:22554reamohetsentetshe" element={<CameraPreview />} />
+        <Route path="/id:22554reamohetsentetshe" element={<TestCamera />} />
         <Route path="/Information-You-Should-Know" element={<IsSet />} />
       </Routes>
     </>

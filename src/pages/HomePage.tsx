@@ -9,7 +9,7 @@ const HomePage = () => {
             {/* Grid */}
             <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
                 <div>
-                <h1 className="block text-3xl font-bold text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight">Start your journey with <span className="text-blue-600 dark:text-blue-500">Cell C Limited</span></h1>
+                <h1 className="block text-3xl font-bold text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight">Start your journey with <span className="text-[#EA5B0C]">Cell C Limited</span></h1>
                 <p className="mt-3 text-lg text-neutral-200">The most user-friendly one-way video interview software</p>
 
                 {/* Buttons */}
