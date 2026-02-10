@@ -136,13 +136,13 @@ const FAQ = () => {
                     6. Plan When You Take the Interview
                     </h3>
                     <p className="mt-2 text-neutral-300">
-                        This interview can be completed at any time between Monday and Friday. We strongly recommend that you do not rush into it.
+                        This interview can be completed at any time between the 9th February to the 23rd of February. We strongly recommend that you do not rush into it.
                     </p>
                     <p className="mt-2 text-neutral-300">
                         If possible:
                     </p>
                     <p className="mt-2 text-neutral-300">
-                        • Use the first few days (Monday to Wednesday) to prepare
+                        • Use the first few days to prepare
                     </p>
                     <p className="mt-2 text-neutral-300">
                         • Review basic networking concepts and real-life troubleshooting scenarios

@@ -39,7 +39,7 @@ const TestCamera = () => {
 
   const handleNext = (): void => {
     stopCamera();
-    navigate("/Information-You-Should-Know");
+    navigate("/id:22554reamohetsentetshe-recording");
   };
 
   const handleNextt = (): void => {
