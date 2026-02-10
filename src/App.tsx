@@ -3,7 +3,6 @@ import HomePage from "./pages/HomePage";
 import IsSet from "./components/IsSet";
 import TestCamera from "./components/TestCamera";
 import Recording from "./components/Recording";
-import Ft from "./components/Ft";
 
 function App() {
 
